@@ -20,4 +20,32 @@ public class AppointmentService {
             a.finish(notes);
         }
     }
+
+    // Additional helper methods used by controllers
+    public Appointment scheduleAppointment(int patientId, int doctorId, String date, String reason) {
+        // reason currently not stored at scheduling time; return created appointment
+        return schedule(patientId, doctorId, date);
+    }
+
+    public void cancelAppointment(int id) {
+        Appointment a = repo.findById(id);
+        if (a != null) {
+            a.cancel();
+        }
+    }
+
+    public void rescheduleAppointment(int id, String newDate) {
+        Appointment a = repo.findById(id);
+        if (a != null) {
+            a.reschedule(newDate);
+        }
+    }
+
+    public java.util.List<Appointment> findAll() {
+        return repo.findAll();
+    }
+
+    public Appointment findById(int id) {
+        return repo.findById(id);
+    }
 }

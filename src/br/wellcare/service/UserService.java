@@ -14,4 +14,16 @@ public class UserService {
         repo.save(u);
         return u;
     }
+
+    public java.util.List<User> findAll() {
+        return repo.findAll();
+    }
+
+    public User findById(int id) {
+        return repo.findById(id);
+    }
+
+    public void deleteUser(int id) {
+        repo.deleteById(id);
+    }
 }

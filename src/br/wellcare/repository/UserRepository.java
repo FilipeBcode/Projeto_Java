@@ -13,4 +13,8 @@ public class UserRepository {
     public User findById(int id) {
         return users.stream().filter(u -> u.getId() == id).findFirst().orElse(null);
     }
+
+    public void deleteById(int id) {
+        users.removeIf(u -> u.getId() == id);
+    }
 }

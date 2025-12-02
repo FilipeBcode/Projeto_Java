@@ -12,4 +12,12 @@ public class HealthRecordRepository {
     public HealthRecord findByUserId(int userId) {
         return records.stream().filter(r -> r.getUserId() == userId).findFirst().orElse(null);
     }
+
+    public java.util.List<HealthRecord> findAll() { return records; }
+
+    public HealthRecord findById(int id) {
+        return records.stream().filter(r -> r.getId() == id).findFirst().orElse(null);
+    }
+
+    public void deleteById(int id) { records.removeIf(r -> r.getId() == id); }
 }

@@ -18,4 +18,25 @@ public class HealthRecordService {
         repo.save(record);
         return record;
     }
+
+    public java.util.List<HealthRecord> findAll() {
+        return repo.findAll();
+    }
+
+    public java.util.List<HealthRecord> findByUserId(int userId) {
+        // repository exposes a single findByUserId which returns the first match; keep compatibility
+        HealthRecord r = repo.findByUserId(userId);
+        if (r == null) return new java.util.ArrayList<>();
+        java.util.List<HealthRecord> list = new java.util.ArrayList<>();
+        list.add(r);
+        return list;
+    }
+
+    public HealthRecord findById(int id) {
+        return repo.findById(id);
+    }
+
+    public void delete(int id) {
+        repo.deleteById(id);
+    }
 }

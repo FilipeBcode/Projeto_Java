@@ -30,6 +30,14 @@ public class Appointment {
         this.notes = notes;
     }
 
+    public void cancel() {
+        this.status = AppointmentStatus.CANCELED;
+    }
+
+    public void reschedule(String newDate) {
+        this.date = newDate;
+    }
+
     @Override
     public String toString() {
         return "Appointment { id=" + id + ", patientId=" + patientId +

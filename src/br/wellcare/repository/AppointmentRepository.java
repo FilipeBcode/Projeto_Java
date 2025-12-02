@@ -12,4 +12,8 @@ public class AppointmentRepository {
     public Appointment findById(int id) {
         return appointments.stream().filter(a -> a.getId() == id).findFirst().orElse(null);
     }
+
+    public java.util.List<Appointment> findAll() {
+        return appointments;
+    }
 }
